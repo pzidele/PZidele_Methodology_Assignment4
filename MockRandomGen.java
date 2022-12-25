@@ -1,34 +1,25 @@
 package assignment4;
 
+
 public class MockRandomGen implements IRandomValueGenerator{
 
-	private int num;
-	private double prob;
+	private double rand;
 	
-	public MockRandomGen(int num) {
-		this.num = num;
+	
+	@Override 
+	public int generateRandom(int min, int max) {
+
+
+		double mul = ((max + 1) - min) * rand;
+		return (int)( min + mul);
+
 	}
 	
-	public MockRandomGen(double prob) {
-		this.prob = prob;
-	}
 	
-	@Override
-	public int getRandomRange(int min, int max) {
-		return num;
-	}
-	
-	public void setRandom (int num) {
-		this.num = num;
+	public void setRandom (double num) {
+		this.rand = num;
 	}
 
-	@Override
-	public double getRandomProb() {
-		return prob;
-	}
 	
-	public void setRandomProb(double prob) {
-		this.prob = prob;
-	}
 
 }

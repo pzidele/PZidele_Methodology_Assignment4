@@ -1,26 +1,22 @@
 package assignment4;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomGen implements IRandomValueGenerator {
+
 	
-	private IRandomValueGenerator number;
 	
-	public RandomGen(IRandomValueGenerator number) {
-		this.number = number;
-	}
+	@Override 
+	public int generateRandom(int min, int max) {
+	//	int random = ThreadLocalRandom.current().nextInt(min, max + 1);
 
-	@Override
-	public int getRandomRange(int min, int max) {
-		
-		int random = ThreadLocalRandom.current().nextInt(min, max + 1);
+		Random rand = new Random();
+		double num = rand.nextDouble();
 
-		return random;
-	}
-
-	@Override
-	public double getRandomProb() {
-		return Math.random();
+		double mul = ((max+1) - min) * num;
+		return (int)( min + mul);
+		//return random;	
 	}
 
 
