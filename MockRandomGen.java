@@ -11,7 +11,9 @@ public class MockRandomGen implements IRandomValueGenerator{
 
 
 		double mul = ((max + 1) - min) * rand;
-		return (int)( min + mul);
+		return (int) ( min + mul);
+		
+
 
 	}
 	
